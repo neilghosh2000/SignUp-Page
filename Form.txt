@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+	<meta charset="UTF-8">  
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+
+	<title>Signup for Shaastra 2019
+	</title>
+	<style>
+		.red{ border:3px solid red;
+			}	
+	</style>
+</head>
+<body ng-app="">
+	<div class="bg" style="background-image: url('InexperiencedNaturalBustard-size_restricted.gif');">
+		<div class="user">
+		    <header class="user__header">
+		        <img src="logo.png" alt="" width="85%" height="250px" />
+		        <h1 class="user__title">Signup for Shaastra 2019</h1>
+		    </header>
+
+			<form name="myForm" class="form" method="get">
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-user""></i></span>
+					<input type="text" placeholder="First Name" class="form__input" name="first" ng-model="first" ng-class="{red: myForm.first.$invalid && myForm.first.$touched}" required>
+				</div>
+				<span class="form__span" ng-show="myForm.first.$invalid && myForm.first.$touched">Please enter First Name.</span>
+				
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-user"></i></span>
+					<input type="text" placeholder="Last Name" class="form__input" name="last" ng-model="last" ng-class="{red: myForm.last.$invalid && myForm.last.$touched}" required>
+				</div>
+				<span class="form__span" ng-show="myForm.last.$invalid && myForm.last.$touched"> Please enter Last Name.</span>
+				
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-id-badge"></i></span>
+					<input type="text" placeholder="Shaastra ID" class="form__input" name="id" ng-model="id" ng-class="{red: myForm.id.$invalid && myForm.id.$touched}" required>
+				</div>
+				<span class="form__span" ng-show="myForm.id.$invalid && myForm.id.$touched"> Please enter Shaastra ID.</span>
+				
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-phone"></i></span>
+					<input type="text" placeholder="Phone No." class="form__input" name="phone" pattern=[1-9]{1}[0-9]{9} ng-model="phone" ng-class="{red: myForm.phone.$invalid && myForm.phone.$touched}" required>	
+				</div>
+				<span class="form__span" ng-show="myForm.phone.$invalid && myForm.phone.$touched"> Please enter 10 digits without any alphabets or special characters.</span>
+				
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-at"></i></span>
+					<input type="text" placeholder="Email " class="form__input" name="email" pattern=^[\w]{1,}@[\w]{1,}.[\w]{2,} ng-model="email" ng-class="{red: myForm.email.$invalid && myForm.email.$touched}" required>
+				</div>
+				<span class="form__span" ng-show="myForm.email.$invalid && myForm.email.$touched"> Please enter a valid Email Address.</span>
+	
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+					<input list="state" placeholder="State " class="form__input" name="state" ng-model="state" ng-class="{red: myForm.state.$invalid && myForm.state.$touched}" required>
+					<datalist id="state">
+						<option value="Andhra Pradesh">
+						<option value="Arunachal Pradesh">
+						<option value="Assam">
+						<option value="Bihar">
+						<option value="Chattisgarh">
+						<option value="Goa">
+						<option value="Gujarat">
+						<option value="Haryana">
+						<option value="Himachal Pradesh">
+						<option value="Jammu and Kashmir">
+						<option value="Jharkhand">
+						<option value="Karnataka">
+						<option value="Kerala">
+						<option value="Madhya Pradesh">
+						<option value="Maharashtra">
+						<option value="Manipur">
+						<option value="Meghalaya">
+						<option value="Mizoram">
+						<option value="Nagaland">
+						<option value="Odisha">
+						<option value="Punjab">
+						<option value="Rajasthan">
+						<option value="Sikkim">
+						<option value="Tamil Nadu">
+						<option value="Telangana">
+						<option value="Tripura">
+						<option value="Uttarakhand">
+						<option value="Uttar Pradesh">
+						<option value="West Bengal">
+					</datalist>
+				</div>	
+				<span class="form__span" ng-show="myForm.state.$invalid && myForm.state.$touched"> Please select a state from the dropdown box.</span>
+				
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-key"></i></span>
+					<input type="password" placeholder="Password" class="form__input" name="pwd1" id="pwd1" minlength="6"
+					  ng-model="pwd1" ng-class="{red: myForm.pwd1.$invalid && myForm.pwd1.$touched}" required>
+				</div>
+				<span class="form__span" ng-show="myForm.pwd1.$invalid && myForm.pwd1.$touched">Please enter atleast 6 characters.</span>
+				
+
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-key"></i></span>
+					<input type="password" placeholder="Confirm Password" class="form__input" name="pwd2" id="pwd2" minlength="6"  ng-model="pwd2" ng-class="{red: (pwd1!=pwd2)&& myForm.pwd2.$touched}" required>
+				</div>	
+				<span class="form__span" ng-show="(pwd1!=pwd2) && myForm.pwd2.$touched">Passwords do not match.</span>
+				
+				<input type="submit" class="btn" name="register" ng-Disabled="myForm.$invalid || (pwd1!=pwd2)">
+			</form>
+		</div>
+	</div>
+	<script  src="index.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
